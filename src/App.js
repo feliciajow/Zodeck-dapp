@@ -5,11 +5,12 @@ import Login from './pages/Login';
 import Landing from './pages/Landing';
 import Cardpack from './pages/Cardpack';
 import Marketplace from './pages/Marketplace';
+import CardpackResults from './pages/CardpackResults';
 
 function Header() {
   const location = useLocation();
   console.log(location.pathname);
-  const hideHeaderRoutes = ['/', '/cardpack']; // Add routes where you want to hide the header
+  const hideHeaderRoutes = ['/', '/cardpack', '/cardpackresults']; // Add routes where you want to hide the header
 
   if (hideHeaderRoutes.includes(location.pathname)) {
     return null;
@@ -40,6 +41,8 @@ function App() {
           <Route path="/cardpack" element={<Cardpack />} />
           {/* Route for Marketplace page */}
           <Route path="/marketplace" element={<Marketplace />} />
+          {/* Route for Cardpack Results page */}
+          <Route path="/cardpackresults" element={<CardpackResults />} />
         </Routes>
       </div>
     </Router>
