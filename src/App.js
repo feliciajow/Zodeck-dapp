@@ -6,6 +6,8 @@ import Landing from './pages/Landing';
 import Cardpack from './pages/Cardpack';
 import Marketplace from './pages/Marketplace';
 import CardpackResults from './pages/CardpackResults';
+import Collection from './pages/Collection';
+import ViewCard from './pages/ViewCard';
 
 function Header() {
   const location = useLocation();
@@ -43,6 +45,9 @@ function App() {
           <Route path="/marketplace" element={<Marketplace />} />
           {/* Route for Cardpack Results page */}
           <Route path="/cardpackresults" element={<CardpackResults />} />
+          {/* Route for Collections page */}
+          <Route path="/collection" element={<Collection />} />
+          <Route path="/collection/card/:id" element={<ViewCard />} />
         </Routes>
       </div>
     </Router>

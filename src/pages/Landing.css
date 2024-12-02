@@ -128,6 +128,17 @@ html, body {
   text-decoration: underline;
 }
 
+.go-to-collection {
+  font-weight: bold;
+  color: #6200ee;
+  text-decoration: none;
+  margin-right: 100px;
+}
+
+.go-to-collection:hover {
+  text-decoration: underline;
+}
+
 /* Card Listing */
 .card-listing {
   display: flex;

@@ -12,7 +12,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 40px;
-    grid-row-gap: 50px;
+    grid-row-gap: 40px;
     overflow-y: auto;
     /* margin: 40px; */
     justify-items: center;
@@ -29,7 +29,7 @@
     flex-direction: column;
 }
 
-.card-image {
+.result-card-image {
     width: 200px;
     height: 200px;
     background-color: #e0e0e0;

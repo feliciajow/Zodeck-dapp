@@ -1,0 +1,63 @@
+html, body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.view-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+  
+  /* Content container for card pack and info */
+  .view-card-content {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+  
+  .view-card-image {
+    width: 300px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  .view-card-btn-container{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+    margin: 25px 0;
+  }
+  
+  /* Button */
+  .sell-btn {
+    padding: 15px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .favourite-btn{
+    padding: 15px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    align-items: left;
+  }

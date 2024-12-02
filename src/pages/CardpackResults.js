@@ -10,7 +10,7 @@ const CardpackResults = () => {
     }
 
     const handleViewCollection = () => {
-        //logic to view collection
+        navigate('/collection');
     }
     return (
         <div className="cardpack-results-container">
@@ -28,7 +28,7 @@ const CardpackResults = () => {
                 { index: 10, image:'/cardImages/3.png', title: "Ancient coins from China's past" },
                 ].map((listing, index) => (
                     <div className="result-card" key={index}>
-                        <img src={listing.image} className="card-image" />
+                        <img src={listing.image} className="result-card-image" />
                         <p className="card-title">{listing.title}</p>
                     </div>
                 ))}
