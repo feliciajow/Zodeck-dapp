@@ -30,7 +30,12 @@ const Landing = () => {
           Buy Card Packs
         </button>
       </div>
-      <h2 className="section-title">Your Collection</h2>
+      <div className='listings-title-container'>
+        <h2 className="section-title">Your Collection</h2>
+        <a href="/collection" className="go-to-collection">
+            View my collection &gt;&gt;
+        </a>
+      </div>
       <div className="card-listing">
         {collectionCards.map((card) => (
           <div className="card-container" key={card.id}>
@@ -55,9 +60,9 @@ const Landing = () => {
         </a>
       </div>
 
-      <div className="marketplace-listings">
+      <div className="marketplace-landing-listings">
         {[...Array(5)].map((_, index) => (
-          <div className="marketplace-card" key={index}>
+          <div className="marketplace-landing-card" key={index}>
             <div className="card-image"></div>
             <p className="card-price">{`Price: ${1 + index * 0.1} ETH`}</p>
             <p className="card-title">{`Card Title ${index + 1}`}</p>
