@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, Link } from 'react-router-dom';
 import './App.css';
 import Login from './pages/Login';
 import Landing from './pages/Landing';
@@ -72,7 +72,7 @@ function Header() {
   const location = useLocation();
   console.log(location.pathname);
   // Add routes where you want to hide the header
-  const hideHeaderRoutes = ['/', '/cardpack', '/cardpackresults']; // Add routes where you want to hide the header
+  const hideHeaderRoutes = ['/', '/cardpack', '/cardpackresults']; 
 
   if (hideHeaderRoutes.includes(location.pathname)) {
     return null;
@@ -80,7 +80,9 @@ function Header() {
 
   return (
     <div className="header">
-      <img src="/logo512.png" alt="Zodeck Logo" className="logo" />
+      <Link to="/landing">
+        <img src="/logo512.png" alt="Zodeck Logo" className="logo" href="/landing"/>
+      </Link>
       <div className="user-info">
       {/* if wallet is connected, display the metamask wallet address */}
       {walletConnected ? (<p>Login To: {account}</p>):(<p></p>)} 
