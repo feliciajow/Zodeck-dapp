@@ -30,7 +30,7 @@ const Marketplace = () => {
               { price: '1.93 ETH', title: 'Yellow sea coral preserved by me' },
             ].map((listing, index) => (
               <div className="marketplace-card" key={index}>
-                <img src={listing.image} className="card-image" />
+                <img src={listing.image} className="card-image-marketplace" />
                 <p className="card-price">{listing.price}</p>
                 <p className="card-title">{listing.title}</p>
                 <button className="place-bid-btn">Place Your Bid</button>

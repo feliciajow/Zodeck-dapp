@@ -35,6 +35,14 @@
     font-size: 14px;
     color: #333;
   }
+
+  .cardpack-btn-container{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+    margin: 25px 0;
+  }
   
   /* Button */
   .open-cardpack-btn {
@@ -45,4 +53,15 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+  }
+
+  .cardpack-back-btn{
+    padding: 15px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    align-items: left;
   }

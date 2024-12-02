@@ -76,7 +76,7 @@ flex-direction: column ;
 display: flex;
 }
 
-.card-image {
+.card-image-marketplace {
 width: 100%;
 height: 50%;
 background-color: #e0e0e0;

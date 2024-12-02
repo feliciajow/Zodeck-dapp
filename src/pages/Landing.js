@@ -55,9 +55,9 @@ const Landing = () => {
         </a>
       </div>
 
-      <div className="marketplace-listings">
+      <div className="marketplace-landing-listings">
         {[...Array(5)].map((_, index) => (
-          <div className="marketplace-card" key={index}>
+          <div className="marketplace-landing-card" key={index}>
             <div className="card-image"></div>
             <p className="card-price">{`Price: ${1 + index * 0.1} ETH`}</p>
             <p className="card-title">{`Card Title ${index + 1}`}</p>

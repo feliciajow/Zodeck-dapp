@@ -148,7 +148,7 @@ html, body {
 }
 
 /* Marketplace Listings */
-.marketplace-listings {
+.marketplace-landing-listings {
   display: flex;
   gap: 20px;
   overflow-x: auto;
@@ -156,7 +156,7 @@ html, body {
   margin-left: 40px;
 }
 
-.marketplace-card {
+.marketplace-landing-card {
   background-color: #fff;
   padding: 10px;
   border-radius: 0px;
