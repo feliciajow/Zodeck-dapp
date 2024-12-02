@@ -74,3 +74,18 @@
   border-radius: 50%;
   background-color: #ccc;
 }
+
+.connectWallet {
+  padding: 20px 60px;
+  background-color: #6200ee;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap; /* Prevent the text from wrapping */
+  margin-right: 100px;
+}
+
+.spacing{
+  padding: 10px 50px;
+}

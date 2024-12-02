@@ -5,7 +5,7 @@ async function main() {
     console.log("Deploying contracts with the account:", deployer.address);
 
     // Deploy the contract
-    const NFTMarketplace = await hre.ethers.getContractFactory("NFTMarketplace");
+    const NFTMarketplace = await hre.ethers.getContractFactory("NFTMarketplace"); 
     console.log("Deploying NFTMarketplace...");
     const nftMarketplace = await NFTMarketplace.deploy(); // Deploy transaction
 
