@@ -7,9 +7,9 @@ module.exports = {
   networks: {
     sepolia: {
       url: process.env.API_URL, // Replace with your Infura endpoint
-      accounts: [process.env.PRIVATE_KEY], // Replace with the private key of your account (without 0x)
+      accounts: [`0x${process.env.PRIVATE_KEY}`], // Replace with the private key of your account (without 0x)
       gas: 3000000,
       gasPrice: 1000000000,
-    }
-  }
+    },
+  },
 };
