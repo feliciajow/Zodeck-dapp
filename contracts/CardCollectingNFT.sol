@@ -32,6 +32,7 @@ contract CardCollectingNFT is
     )
         ERC721("CardCollectingNFT", "CCNFT")
         VRFV2WrapperConsumerBase(linkAddress, vrfV2Wrapper)
+        Ownable(msg.sender)
     {}
 
     function mintCard() external payable returns (uint256 requestId) {
@@ -45,14 +46,14 @@ contract CardCollectingNFT is
         );
 
         // Map the request ID to the user's address
-        requestToSender[requestId] = msg.sender;
+        requestToSender[bytes32(requestId)] = msg.sender;
     }
 
     function fulfillRandomWords(
         uint256 requestId,
         uint256[] memory randomWords
     ) internal override {
-        address minter = requestToSender[requestId];
+        address minter = requestToSender[bytes32(requestId)];
         uint256 tokenId = nextTokenId;
         nextTokenId++;
 
