@@ -5,9 +5,6 @@ const config = require('../abi/config.json');
 const CONTRACT_ADDRESS = config.MINT_CONTRACT_ADDRESS;
 const contract = require("../abi/CardMintPack.json");
 
-const MAX_RETRIES = 2;  // Maximum retries
-const RETRY_INTERVAL_MS = 150000;  // Time between retries
-
 // Provider
 const provider = new ethers.JsonRpcProvider(process.env.API_URL);
 // Signer
@@ -66,15 +63,16 @@ async function main() {
 
   ////////////////
 
-  const native = await packContract.getNativePayment();
-  console.log(native);
-  // const tx = await packContract.setNativePayment(true);
-  const tx = await packContract.requestRandomWords();
-  console.log(tx);
+  // const native = await packContract.getNativePayment();
+  // console.log(native);
+  // // const tx = await packContract.setNativePayment(true);
+  // const tx = await packContract.requestRandomWords();
+  // console.log(tx);
 
   // const withdraw = await packContract.withdraw();
   // console.log(withdraw);
-
+  const tx = await packContract.fetchMyNFTs();
+  console.log(tx);
 
 }
 main();

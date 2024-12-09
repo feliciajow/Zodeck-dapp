@@ -36,6 +36,7 @@ contract CardMintPack is ERC721URIStorage, VRFConsumerBaseV2Plus, NFTplace {
     mapping(uint256 => bool) private tokenExists; // Prevent duplicate token minting
     mapping(address => uint256[]) private userMintedTokens; // Tracks tokens per user
     mapping(uint256 => uint256[]) private requestIdToTokenIds; // Maps requestId to tokenIds
+    mapping(uint256 => uint256) public cardIndexes; // maps tokenId to cardIndex
 
     event RandomnessRequested(uint256 requestId, address requester);
     event RandomnessFulfilled(uint256 requestId, uint256[] randomWords);
@@ -100,8 +101,9 @@ function batchMint(
             string memory uri = string(abi.encodePacked(baseURI, "Card ", Strings.toString(cardIndex), ".png"));
 
             // Track the minted token and increment the token ID
-            uint256 tokenId = createToken(uri, recipient);
+            uint256 tokenId = createToken(uri, recipient, cardIndex);
             mintedTokenIds[i] = tokenId;
+            cardIndexes[tokenId] = cardIndex;
 
             emit CardMinted(tokenId, recipient, uri);
         }
@@ -121,6 +123,11 @@ function batchMint(
     // Helper to fetch minted tokens for a request
     function getMintedTokensFromRequest(uint256 requestId) public view returns (uint256[] memory) {
         return requestIdToTokenIds[requestId];
+    }
+
+    // Helper to fetch cardIndex for a tokenId
+    function getCardIndexFromId(uint256 tokenId) public view returns (uint256) {
+        return cardIndexes[tokenId];
     }
 
     // Update the base URI for metadata

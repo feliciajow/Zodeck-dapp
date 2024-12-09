@@ -19,13 +19,15 @@ contract NFTplace is ERC721URIStorage {
         address payable owner;
         uint256 price;
         bool sold;
+        uint256 cardIndex;
     }
     event ListingCreated (
         uint256 indexed tokenId,
         address seller,
         address owner,
         uint256 price,
-        bool sold
+        bool sold,
+        uint256 cardIndex
     );
 
     event ListingRemoved (
@@ -39,12 +41,12 @@ contract NFTplace is ERC721URIStorage {
     function getContractOwner() public view returns (address) {
         return contract_owner;
     }
-    function createToken(string memory tokenURI, address recipient) public payable returns (uint) {
+    function createToken(string memory tokenURI, address recipient, uint256 _cardIndex) public payable returns (uint) {
         _tokenIds = _tokenIds.add(1);
         uint256 newTokenId = _tokenIds;
         _mint(recipient, newTokenId);
         _setTokenURI(newTokenId, tokenURI);
-        cardToListingItem[newTokenId] = Listing(newTokenId, payable(address(0)),payable(recipient),0,true);
+        cardToListingItem[newTokenId] = Listing(newTokenId, payable(address(0)),payable(recipient),0,true, _cardIndex);
         return newTokenId;
     }
     function getListingPrice() public view returns (uint256){
@@ -58,9 +60,12 @@ contract NFTplace is ERC721URIStorage {
     function createListing(uint256 tokenId, uint256 price) private {
         require(price > 0, "Price must be at least 1 wei");
         _unsoldItemCount = _unsoldItemCount.add(1);
-        cardToListingItem[tokenId] = Listing(tokenId,payable(msg.sender),payable(address(this)),price,false);
+        cardToListingItem[tokenId].seller = payable(msg.sender);
+        cardToListingItem[tokenId].owner = payable(address(this));
+        cardToListingItem[tokenId].price = price;
+        cardToListingItem[tokenId].sold = false;
         _transfer(msg.sender, address(this), tokenId);
-        emit ListingCreated(tokenId,msg.sender,address(this),price,false);
+        emit ListingCreated(tokenId,msg.sender,address(this),price,false, cardToListingItem[tokenId].cardIndex);
     }
 
     //Marketplace
